@@ -35,15 +35,19 @@ public class Season
     public static String getOpponentName(int num)
     {
         if (num == 0) return "Riverside FC";
-        else if (num == 1) return "Northport Athletic";
-        else if (num == 2) return "Steel City United";
-        else if (num == 3) return "Valley Rovers";
-        else if (num == 4) return "Harbor Town FC";
-        else if (num == 5) return "Metro Stars";
-        else if (num == 6) return "Red Oak FC";
-        else if (num == 7) return "Blue River SC";
-        else if (num == 8) return "Summit United";
-        return "Lakeside Wanderers";
+        else if (num == 1) return "Arsenal";
+        else if (num == 2) return "Man City";
+        else if (num == 3) return "Real Madrid";
+        else if (num == 4) return "Inter Milan";
+        else if (num == 5) return "Barcelona";
+        else if (num == 6) return "Bayern Munich";
+        else if (num == 7) return "Dortmund";
+        else if (num == 8) return "Liverpool";
+        else if (num == 9) return "Atletico Madrid";
+        else if (num == 10) return "Napoli";
+        else if (num == 11) return "PSG";
+        else if (num == 12) return "Rennes";
+        return "Madison FC";
     }
 
 
@@ -81,7 +85,7 @@ public class Season
             team.changeMorale(4);
         }
 
-        String opponent = getOpponentName(randomInt(10));
+        String opponent = getOpponentName(randomInt(13));
         int opponentStrength = 55 + randomInt(41);
         int teamStrength = (team.getFitness() + team.getMorale() + team.getTactics()) / 3;
 
