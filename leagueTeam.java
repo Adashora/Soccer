@@ -15,5 +15,34 @@ public class leagueTeam
         points = 0;
     }
 
-    // getters and methods
+    public String getName(){
+
+        return name;
+    }
+    public int getPoints(){
+        return points;
+    }
+    public int getWins(){
+        return wins;
+    }
+    public int getDraws(){
+        return draws;
+    }
+    public int getLosses(){
+        return losses;
+    }
+    public void addWin(){
+        wins++;
+        points += 3;
+    }
+    public void addDraw(){
+        draws++;
+        points += 1;
+    }
+    public void addLoss(){
+        losses++;
+        
+    }
+
+    
 }

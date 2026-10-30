@@ -15,8 +15,12 @@ public class Main
     {
         Team team = new Team();
         Season season = new Season();
+        League league = new League();
+
+        
 
         Text.intro();
+        
 
         while (season.getMatchNumber() <= 12)
         {

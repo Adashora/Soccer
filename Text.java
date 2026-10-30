@@ -6,6 +6,8 @@ public class Text {
         System.out.println("==================================");
         System.out.println("Board Goal: Earn 20 points in 12 matches.");
         System.out.println();
+        
+        
 
     }
 
