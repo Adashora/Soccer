@@ -2,6 +2,19 @@ import java.util.Scanner;
 
 public class Match {
 
+    public static void pause(int a){
+
+
+        try
+        {
+            Thread.sleep(a);
+        }
+        catch (InterruptedException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
 
     public static int randomInt(int max)
     {
@@ -11,6 +24,17 @@ public class Match {
 
     private static Scanner key = new Scanner(System.in);
 
+    
+    public static void event(int minute, String text)
+{
+    pause(2000);
+    System.out.println(minute + "':");
+
+    pause(2000);
+    System.out.println(text);
+}
+
+    
 
      public static void playMatch(Team team, Season season, String opponent, int opponentStrength){
 
@@ -27,57 +51,25 @@ public class Match {
 
         for (int i = 0; i < 45; i++){
 
-            int chance = randomInt(6);
+            int chance = randomInt(6) + 1;
             if (randomInt(90) < 5){
 
                 if (chance == 1){
 
-                    try
-                    {
-                        Thread.sleep(2000);
-                    }
-                    catch (InterruptedException e)
-                    {
-                        e.printStackTrace();
-                    }
-
-                    System.out.println(i + "':");
-
-                    try
-                    {
-                        Thread.sleep(2000);
-                    }
-                    catch (InterruptedException e)
-                    {
-                        e.printStackTrace();
-                    }
-
-                    System.out.println("GOALLLLLL UNDERDOG FC");
+                   
+                    event(i, "Big chance for Underdog FC");
+                    pause(1234);
+                    System.out.println("GOALLLLLLL UNDERDOG FC");
                     yourGoals += 1;
                     
                 }
 
                 if (chance == 2){
 
-                    try
-                    {
-                        Thread.sleep(2000);
-                    }
-                    catch (InterruptedException e)
-                    {
-                        e.printStackTrace();
-                    }
+                    pause(2000);
 
-                    System.out.println(i + "':");
-
-                    try
-                    {
-                        Thread.sleep(2000);
-                    }
-                    catch (InterruptedException e)
-                    {
-                        e.printStackTrace();
-                    }
+                    event(i, "Big chance for " + opponent);
+                    pause(1234);
 
                     System.out.println("GOALLLLLL " + opponent);
                     opponentGoals += 1;
@@ -85,117 +77,22 @@ public class Match {
                 }
                 if (chance == 3){
 
-                    try
-                    {
-                        Thread.sleep(2000);
-                    }
-                    catch (InterruptedException e)
-                    {
-                        e.printStackTrace();
-                    }
-                    System.out.println(i + "':");
-
-                    try
-                    {
-                        Thread.sleep(2000);
-                    }
-                    catch (InterruptedException e)
-                    {
-                        e.printStackTrace();
-                    }
-
-                    System.out.println("Yellow Card for " + opponent);
+                    event(i, "Yellow card for " + opponent);
                 }
                 if (chance == 4){
-
-                    try
-                    {
-                        Thread.sleep(2000);
-                    }
-                    catch (InterruptedException e)
-                    {
-                        e.printStackTrace();
-                    }
-                    System.out.println(i + "':");
-
-                    try
-                    {
-                        Thread.sleep(2000);
-                    }
-                    catch (InterruptedException e)
-                    {
-                        e.printStackTrace();
-                    }
-
-                    System.out.println("Yellow Card for Underdog FC");
+                    event(i, "Yellow card for Underdog FC");
                 }
                 if (chance == 5){
 
-                    try
-                    {
-                        Thread.sleep(2000);
-                    }
-                    catch (InterruptedException e)
-                    {
-                        e.printStackTrace();
-                    }
-                    System.out.println(i + "':");
-
-                    try
-                    {
-                        Thread.sleep(2000);
-                    }
-                    catch (InterruptedException e)
-                    {
-                        e.printStackTrace();
-                    }
-
-                    System.out.println("Big chance for " + opponent);
-
-                    try
-                    {
-                        Thread.sleep(2000);
-                    }
-                    catch (InterruptedException e)
-                    {
-                        e.printStackTrace();
-                    }
-
+                   event(i, "Big chance for " + opponent);
+                    pause(1234);
                     System.out.println("No goal.");
                     
                 }
                 if (chance == 6){
 
-                    try
-                    {
-                        Thread.sleep(2000);
-                    }
-                    catch (InterruptedException e)
-                    {
-                        e.printStackTrace();
-                    }
-                    System.out.println(i + "':");
-
-                    try
-                    {
-                        Thread.sleep(2000);
-                    }
-                    catch (InterruptedException e)
-                    {
-                        e.printStackTrace();
-                    }
-
-                    System.out.println("Big chance for Underdog FC");
-
-                    try
-                    {
-                        Thread.sleep(2000);
-                    }
-                    catch (InterruptedException e)
-                    {
-                        e.printStackTrace();
-                    }
-
+                    event(i, "Big chance for Undrdog FC");
+                    pause(1234);
                     System.out.println("No goal.");
                     
                 }
@@ -208,8 +105,11 @@ public class Match {
         }
 
             System.out.println("");
-            System.out.println("It is halftime the score is: " + yourGoals + "-" + opponentGoals);
-            System.out.println("What adjustments would you like to make: \n 1: More attacking \n 2: Stay balanced \n 3: defend the goal");
+
+            pause(2000);
+            System.out.println("\t\tIt is halftime the score is: " + yourGoals + "-" + opponentGoals);
+            System.out.println("\t\tWhat adjustments would you like to make: \n \t\t1: More attacking \n \t\t2: Stay balanced \n \t\t3: defend the goal");
+            System.out.print("\t\tChoice: ");
 
             int choice = key.nextInt();
 
@@ -219,151 +119,40 @@ public class Match {
             if (randomInt(90) < 5){
 
                 if (chance == 1 || chance == 7){
-                    System.out.println(i + "':");
-
-                    try
-                    {
-                        Thread.sleep(2000);
-                    }
-                    catch (InterruptedException e)
-                    {
-                        e.printStackTrace();
-                    }
-                    
-
-                    System.out.println("GOALLLLLL UNDERDOG FC");
+                    event(i, "Big chance for Underdog FC");
+                    pause(1234);
+                    System.out.println("GOALLLLLLL UNDERDOG FC");
                     yourGoals += 1;
-                    
                 }
                 if (chance == 2 || chance == 8){
 
-                    try
-                    {
-                        Thread.sleep(2000);
-                    }
-                    catch (InterruptedException e)
-                    {
-                        e.printStackTrace();
-                    }
-                    System.out.println(i + "':");
+                    pause(2000);
 
-                    try
-                    {
-                        Thread.sleep(2000);
-                    }
-                    catch (InterruptedException e)
-                    {
-                        e.printStackTrace();
-                    }
+                    event(i, "Big chance for " + opponent);
+                    pause(1234);
 
                     System.out.println("GOALLLLLL " + opponent);
                     opponentGoals += 1;
                     
                 }
                 if (chance == 3){
-
-                    try
-                    {
-                        Thread.sleep(2000);
-                    }
-                    catch (InterruptedException e)
-                    {
-                        e.printStackTrace();
-                    }
-                    System.out.println(i + "':");
-
-                    try
-                    {
-                        Thread.sleep(2000);
-                    }
-                    catch (InterruptedException e)
-                    {
-                        e.printStackTrace();
-                    }
-
-                    System.out.println("Yellow Card for " + opponent);
+                    event(i, "Yellow card for " + opponent);
                 }
                 if (chance == 4){
 
-                    try
-                    {
-                        Thread.sleep(2000);
-                    }
-                    catch (InterruptedException e)
-                    {
-                        e.printStackTrace();
-                    }
-                    System.out.println(i + "':");
-
-                    try
-                    {
-                        Thread.sleep(2000);
-                    }
-                    catch (InterruptedException e)
-                    {
-                        e.printStackTrace();
-                    }
-
-                    System.out.println("Yellow Card for Underdog FC");
+                    event(i, "Yellow crad for Underdog FC");
                 }
                 if (chance == 5){
 
-                    try
-                    {
-                        Thread.sleep(2000);
-                    }
-                    catch (InterruptedException e)
-                    {
-                        e.printStackTrace();
-                    }
-                    System.out.println(i + "':");
-
-                    System.out.println("Big chance for " + opponent);
-
-                    try
-                    {
-                        Thread.sleep(2000);
-                    }
-                    catch (InterruptedException e)
-                    {
-                        e.printStackTrace();
-                    }
-
+                    event(i, "Big chance for " + opponent);
+                    pause(1234);
                     System.out.println("No goal.");
                     
                 }
                 if (chance == 6){
 
-                    try
-                    {
-                        Thread.sleep(2000);
-                    }
-                    catch (InterruptedException e)
-                    {
-                        e.printStackTrace();
-                    }
-                    System.out.println(i + "':");
-
-                    try
-                    {
-                        Thread.sleep(2000);
-                    }
-                    catch (InterruptedException e)
-                    {
-                        e.printStackTrace();
-                    }
-
-                    System.out.println("Big chance for Underdog FC");
-
-                    try
-                    {
-                        Thread.sleep(2000);
-                    }
-                    catch (InterruptedException e)
-                    {
-                        e.printStackTrace();
-                    }
-
+                    event(i, "Big chance for Undrdog FC");
+                    pause(1234);
                     System.out.println("No goal.");
                     
                 }
@@ -378,42 +167,18 @@ public class Match {
             if (randomInt(90) < 5){
 
                 if (chance == 1){
-                    System.out.println(i + "':");
-
-                    try
-                    {
-                        Thread.sleep(2000);
-                    }
-                    catch (InterruptedException e)
-                    {
-                        e.printStackTrace();
-                    }
                     
-
-                    System.out.println("GOALLLLLL UNDERDOG FC");
+                    event(i, "Big chance for Underdog FC");
+                    pause(1234);
+                    System.out.println("GOALLLLLLL UNDERDOG FC");
                     yourGoals += 1;
                     
                 }
                 if (chance == 2){
+                    pause(2000);
 
-                    try
-                    {
-                        Thread.sleep(2000);
-                    }
-                    catch (InterruptedException e)
-                    {
-                        e.printStackTrace();
-                    }
-                    System.out.println(i + "':");
-
-                    try
-                    {
-                        Thread.sleep(2000);
-                    }
-                    catch (InterruptedException e)
-                    {
-                        e.printStackTrace();
-                    }
+                    event(i, "Big chance for " + opponent);
+                    pause(1234);
 
                     System.out.println("GOALLLLLL " + opponent);
                     opponentGoals += 1;
@@ -421,108 +186,23 @@ public class Match {
                 }
                 if (chance == 3){
 
-                    try
-                    {
-                        Thread.sleep(2000);
-                    }
-                    catch (InterruptedException e)
-                    {
-                        e.printStackTrace();
-                    }
-                    System.out.println(i + "':");
-
-                    try
-                    {
-                        Thread.sleep(2000);
-                    }
-                    catch (InterruptedException e)
-                    {
-                        e.printStackTrace();
-                    }
-
-                    System.out.println("Yellow Card for " + opponent);
+                    event(i, "Yellow card for " + opponent);
                 }
                 if (chance == 4){
 
-                    try
-                    {
-                        Thread.sleep(2000);
-                    }
-                    catch (InterruptedException e)
-                    {
-                        e.printStackTrace();
-                    }
-                    System.out.println(i + "':");
-
-                    try
-                    {
-                        Thread.sleep(2000);
-                    }
-                    catch (InterruptedException e)
-                    {
-                        e.printStackTrace();
-                    }
-
-                    System.out.println("Yellow Card for Underdog FC");
+                    event(i, "Yellow crad for Underdog FC");
                 }
                 if (chance == 5){
 
-                    try
-                    {
-                        Thread.sleep(2000);
-                    }
-                    catch (InterruptedException e)
-                    {
-                        e.printStackTrace();
-                    }
-                    System.out.println(i + "':");
-
-                    System.out.println("Big chance for " + opponent);
-
-                    try
-                    {
-                        Thread.sleep(2000);
-                    }
-                    catch (InterruptedException e)
-                    {
-                        e.printStackTrace();
-                    }
-
+                    event(i, "Big chance for " + opponent);
+                    pause(1234);
                     System.out.println("No goal.");
                     
                 }
                 if (chance == 6){
 
-                    try
-                    {
-                        Thread.sleep(2000);
-                    }
-                    catch (InterruptedException e)
-                    {
-                        e.printStackTrace();
-                    }
-                    System.out.println(i + "':");
-
-                    try
-                    {
-                        Thread.sleep(2000);
-                    }
-                    catch (InterruptedException e)
-                    {
-                        e.printStackTrace();
-                    }
-
-                    System.out.println("Big chance for Underdog FC");
-
-                    try
-                    {
-                        Thread.sleep(2000);
-                    }
-                    catch (InterruptedException e)
-                    {
-                        e.printStackTrace();
-                    }
-
+                    event(i, "Big chance for Undrdog FC");
+                    pause(1234);
                     System.out.println("No goal.");
                     
                 }
@@ -535,42 +215,18 @@ public class Match {
             if (randomInt(90) < 5){
 
                 if (chance == 1){
-                    System.out.println(i + "':");
-
-                    try
-                    {
-                        Thread.sleep(2000);
-                    }
-                    catch (InterruptedException e)
-                    {
-                        e.printStackTrace();
-                    }
-                    
-
-                    System.out.println("GOALLLLLL UNDERDOG FC");
+                    event(i, "Big chance for Underdog FC");
+                    pause(1234);
+                    System.out.println("GOALLLLLLL UNDERDOG FC");
                     yourGoals += 1;
                     
                 }
                 if (chance == 2){
 
-                    try
-                    {
-                        Thread.sleep(2000);
-                    }
-                    catch (InterruptedException e)
-                    {
-                        e.printStackTrace();
-                    }
-                    System.out.println(i + "':");
+                    pause(2000);
 
-                    try
-                    {
-                        Thread.sleep(2000);
-                    }
-                    catch (InterruptedException e)
-                    {
-                        e.printStackTrace();
-                    }
+                    event(i, "Big chance for " + opponent);
+                    pause(1234);
 
                     System.out.println("GOALLLLLL " + opponent);
                     opponentGoals += 1;
@@ -578,108 +234,23 @@ public class Match {
                 }
                 if (chance == 3 || chance == 7){
 
-                    try
-                    {
-                        Thread.sleep(2000);
-                    }
-                    catch (InterruptedException e)
-                    {
-                        e.printStackTrace();
-                    }
-                    System.out.println(i + "':");
-
-                    try
-                    {
-                        Thread.sleep(2000);
-                    }
-                    catch (InterruptedException e)
-                    {
-                        e.printStackTrace();
-                    }
-
-                    System.out.println("Yellow Card for " + opponent);
+                    event(i, "Yellow card for " + opponent);
                 }
                 if (chance == 4){
 
-                    try
-                    {
-                        Thread.sleep(2000);
-                    }
-                    catch (InterruptedException e)
-                    {
-                        e.printStackTrace();
-                    }
-                    System.out.println(i + "':");
-
-                    try
-                    {
-                        Thread.sleep(2000);
-                    }
-                    catch (InterruptedException e)
-                    {
-                        e.printStackTrace();
-                    }
-
-                    System.out.println("Yellow Card for Underdog FC");
+                    event(i, "Yellow card for Underdog FC");
                 }
                 if (chance == 5 || chance == 8){
 
-                    try
-                    {
-                        Thread.sleep(2000);
-                    }
-                    catch (InterruptedException e)
-                    {
-                        e.printStackTrace();
-                    }
-                    System.out.println(i + "':");
-
-                    System.out.println("Big chance for " + opponent);
-
-                    try
-                    {
-                        Thread.sleep(2000);
-                    }
-                    catch (InterruptedException e)
-                    {
-                        e.printStackTrace();
-                    }
-
+                    event(i, "Big chance for " + opponent);
+                    pause(1234);
                     System.out.println("No goal.");
                     
                 }
                 if (chance == 6){
 
-                    try
-                    {
-                        Thread.sleep(2000);
-                    }
-                    catch (InterruptedException e)
-                    {
-                        e.printStackTrace();
-                    }
-                    System.out.println(i + "':");
-
-                    try
-                    {
-                        Thread.sleep(2000);
-                    }
-                    catch (InterruptedException e)
-                    {
-                        e.printStackTrace();
-                    }
-
-                    System.out.println("Big chance for Underdog FC");
-
-                    try
-                    {
-                        Thread.sleep(2000);
-                    }
-                    catch (InterruptedException e)
-                    {
-                        e.printStackTrace();
-                    }
-
+                    event(i, "Big chance for Undrdog FC");
+                    pause(1234);
                     System.out.println("No goal.");
                     
                 }
@@ -692,42 +263,18 @@ public class Match {
             if (randomInt(90) < 5){
 
                 if (chance == 1){
-                    System.out.println(i + "':");
-
-                    try
-                    {
-                        Thread.sleep(2000);
-                    }
-                    catch (InterruptedException e)
-                    {
-                        e.printStackTrace();
-                    }
-                    
-
-                    System.out.println("GOALLLLLL UNDERDOG FC");
+                    event(i, "Big chance for Underdog FC");
+                    pause(1234);
+                    System.out.println("GOALLLLLLL UNDERDOG FC");
                     yourGoals += 1;
                     
                 }
                 if (chance == 2){
 
-                    try
-                    {
-                        Thread.sleep(2000);
-                    }
-                    catch (InterruptedException e)
-                    {
-                        e.printStackTrace();
-                    }
-                    System.out.println(i + "':");
+                    pause(2000);
 
-                    try
-                    {
-                        Thread.sleep(2000);
-                    }
-                    catch (InterruptedException e)
-                    {
-                        e.printStackTrace();
-                    }
+                    event(i, "Big chance for " + opponent);
+                    pause(1234);
 
                     System.out.println("GOALLLLLL " + opponent);
                     opponentGoals += 1;
@@ -735,107 +282,22 @@ public class Match {
                 }
                 if (chance == 3){
 
-                    try
-                    {
-                        Thread.sleep(2000);
-                    }
-                    catch (InterruptedException e)
-                    {
-                        e.printStackTrace();
-                    }
-                    System.out.println(i + "':");
-
-                    try
-                    {
-                        Thread.sleep(2000);
-                    }
-                    catch (InterruptedException e)
-                    {
-                        e.printStackTrace();
-                    }
-
-                    System.out.println("Yellow Card for " + opponent);
+                    event(i, "Yellow card for " + opponent);
                 }
                 if (chance == 4){
 
-                    try
-                    {
-                        Thread.sleep(2000);
-                    }
-                    catch (InterruptedException e)
-                    {
-                        e.printStackTrace();
-                    }
-                    System.out.println(i + "':");
-
-                    try
-                    {
-                        Thread.sleep(2000);
-                    }
-                    catch (InterruptedException e)
-                    {
-                        e.printStackTrace();
-                    }
-
-                    System.out.println("Yellow Card for Underdog FC");
+                    event(i, "Yellow card for Underdog FC");
                 }
                 if (chance == 5){
 
-                    try
-                    {
-                        Thread.sleep(2000);
-                    }
-                    catch (InterruptedException e)
-                    {
-                        e.printStackTrace();
-                    }
-                    System.out.println(i + "':");
-
-                    System.out.println("Big chance for " + opponent);
-
-                    try
-                    {
-                        Thread.sleep(2000);
-                    }
-                    catch (InterruptedException e)
-                    {
-                        e.printStackTrace();
-                    }
+                    event(i, "Big chance for " + opponent);
 
                     System.out.println("No goal.");
                     
                 }
                 if (chance == 6){
 
-                    try
-                    {
-                        Thread.sleep(2000);
-                    }
-                    catch (InterruptedException e)
-                    {
-                        e.printStackTrace();
-                    }
-                    System.out.println(i + "':");
-
-                    try
-                    {
-                        Thread.sleep(2000);
-                    }
-                    catch (InterruptedException e)
-                    {
-                        e.printStackTrace();
-                    }
-
-                    System.out.println("Big chance for Underdog FC");
-
-                    try
-                    {
-                        Thread.sleep(2000);
-                    }
-                    catch (InterruptedException e)
-                    {
-                        e.printStackTrace();
-                    }
+                    event(i, "Big chance for Undrdog FC");
 
                     System.out.println("No goal.");
                     

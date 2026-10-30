@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Season
 {
@@ -32,22 +33,28 @@ public class Season
     public void addDraw(){ draws++; }
     public void addLoss(){ losses++; }
 
-    public static String getOpponentName(int num)
+    
+
+    public static String getOpponentName()
     {
-        if (num == 0) return "Riverside FC";
-        else if (num == 1) return "Arsenal";
-        else if (num == 2) return "Man City";
-        else if (num == 3) return "Real Madrid";
-        else if (num == 4) return "Inter Milan";
-        else if (num == 5) return "Barcelona";
-        else if (num == 6) return "Bayern Munich";
-        else if (num == 7) return "Dortmund";
-        else if (num == 8) return "Liverpool";
-        else if (num == 9) return "Atletico Madrid";
-        else if (num == 10) return "Napoli";
-        else if (num == 11) return "PSG";
-        else if (num == 12) return "Rennes";
-        return "Madison FC";
+        ArrayList<String> opponents = new ArrayList<String>();
+            opponents.add("Madison FC");
+            opponents.add("Arsenal");
+            opponents.add("Man City");
+            opponents.add("Barcelona");
+            opponents.add("Real Madrid");
+            opponents.add("Bayern Munich");
+            opponents.add("Dortmund");
+            opponents.add("Inter Milan");
+            opponents.add("Juventus");
+            opponents.add("PSG");
+            opponents.add("Monaco");
+            opponents.add("Liverpool");
+
+            int index = randomInt(opponents.size());
+            String opponent = opponents.get(index);
+            opponents.remove(index);
+            return opponent;
     }
 
 
@@ -55,11 +62,11 @@ public class Season
     {
         Text.Weeks(team, season);
 
-        System.out.println("1. Intense Training");
-        System.out.println("2. Tactical Study");
-        System.out.println("3. Team Bonding");
-        System.out.println("4. Recovery Week");
-        System.out.print("Choice: ");
+        System.out.println("\t\t1. Intense Training");
+        System.out.println("\t\t2. Tactical Study");
+        System.out.println("\t\t3. Team Bonding");
+        System.out.println("\t\t4. Recovery Week");
+        System.out.print("\t\tChoice: ");
 
         int choice = keyboard.nextInt();
 
@@ -85,7 +92,8 @@ public class Season
             team.changeMorale(4);
         }
 
-        String opponent = getOpponentName(randomInt(13));
+        
+        String opponent = getOpponentName();
         int opponentStrength = 55 + randomInt(41);
         int teamStrength = (team.getFitness() + team.getMorale() + team.getTactics()) / 3;
 

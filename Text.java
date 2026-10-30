@@ -13,11 +13,11 @@ public class Text {
         
 
         System.out.println();
-        System.out.println("========== WEEK " + season.getMatchNumber() + " ==========");
-        System.out.println("Fitness: " + team.getFitness());
-        System.out.println("Morale: " + team.getMorale());
-        System.out.println("Tactics: " + team.getTactics());
-        System.out.println("League Points: " + team.getPoints());
+        System.out.println("\t\t========== WEEK " + season.getMatchNumber() + " ==========");
+        System.out.println("\t\tFitness: " + team.getFitness());
+        System.out.println("\t\tMorale: " + team.getMorale());
+        System.out.println("\t\tTactics: " + team.getTactics());
+        System.out.println("\t\tLeague Points: " + team.getPoints());
         System.out.println();
 
     }
