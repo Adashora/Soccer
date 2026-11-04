@@ -25,6 +25,8 @@ public class Main
         while (season.getMatchNumber() <= 12)
         {
             Season.playWeek(team, season);
+            league.simWeek();
+            league.printTable();
         }
 
         Season.endSeason(team);

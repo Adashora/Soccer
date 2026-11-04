@@ -5,6 +5,8 @@ public class leagueTeam
     private int draws;
     private int losses;
     private int points;
+    private int goalsFor;
+    private int goalsAgainst;
 
     public leagueTeam(String name)
     {
@@ -41,6 +43,17 @@ public class leagueTeam
     }
     public void addLoss(){
         losses++;
+        
+    }
+    public void addGoal(int goals){
+        goalsFor += goals;
+    }
+    public void addGoalAgainst(int goals){
+        goalsAgainst += goals;
+    }
+
+
+    public void sortTeams(){
         
     }
 

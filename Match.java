@@ -338,6 +338,7 @@ public class Match {
             //System.out.println("Underdog FC " + yourGoals + " - " + opponentGoals + " " + opponent);
             System.out.println("Defeat.");
         }
+        
 
     }
     

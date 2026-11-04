@@ -2,6 +2,8 @@ import java.util.ArrayList;
 
 public class League {
     private ArrayList<leagueTeam> teams;
+    
+    private ArrayList<Matchup> remainingGames;
 
 public League()
 {
@@ -22,11 +24,113 @@ public League()
     teams.add(new leagueTeam("liverpool"));
     teams.add(new leagueTeam("Chelsea"));
 
+
+    remainingGames = new ArrayList<Matchup>();
+
+for(int i = 0; i < teams.size(); i++)
+{
+    for(int j = i + 1; j < teams.size(); j++)
+    {
+        remainingGames.add(
+            new Matchup(teams.get(i), teams.get(j))
+        );
+    }
 }
+}
+
+public static int randomInt(int max){
+    
+    return (int)(Math.random() * max);
+    
+}
+public void printSchedule(){
+
+    for(Matchup game : remainingGames){
+
+        System.out.println(game);
+    }
+
+}
+
 public void printTeams() {
     for (leagueTeam team : teams) {
         System.out.println(team.getName());
     }
+
+}
+
+public void simMatch(Matchup game){
+    leagueTeam team1 = game.getTeam1();
+    leagueTeam team2 = game.getTeam2();
+
+    System.out.println(
+        game.getTeam1().getName() +
+        " vs " +
+        game.getTeam2().getName()
+    );
+
+    int score1 = randomInt(5);
+    int score2 = randomInt(5);
+
+    team1.addGoal(score1);
+    team2.addGoal(score2);
+    team1.addGoalAgainst(score2);
+    team2.addGoalAgainst(score1);
+
+    if (score1 > score2){
+        team1.addWin();
+        team2.addLoss();
+    }
+    else if (score2 > score1){
+        team2.addWin();
+        team1.addLoss();
+    }
+    else{
+        team2.addDraw();
+        team1.addDraw();
+    }
+
+}
+public void simWeek(){
+    for(int i = 0; i < 7; i++){
+        Matchup game = remainingGames.remove(0);
+
+        simMatch(game);
+    }
+}
+public void sortTeams(){
+    for(int i = 0; i < teams.size(); i++)
+    {
+        for(int j = i + 1; j < teams.size(); j++)
+        {
+            if(teams.get(j).getPoints() >
+            teams.get(i).getPoints())
+            {
+            leagueTeam temp = teams.get(i);
+            teams.set(i, teams.get(j));
+            teams.set(j, temp);
+            }
+        }
+    }
+    
+}
+public void printTable(){
+    
+    sortTeams();
+
+    System.out.println("\n===== LEAGUE TABLE =====");
+
+    for(int i = 0; i < teams.size(); i++)
+    {
+        System.out.println(
+            (i + 1) + ". "
+            + teams.get(i).getName()
+            + " - "
+            + teams.get(i).getPoints()
+            + " pts"
+        );
+    }
 }
 
 }
+
