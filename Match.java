@@ -37,6 +37,7 @@ public class Match {
     
 
      public static void playMatch(Team team, Season season, leagueTeam opponent, int opponentStrength){
+        
 
 
         System.out.println("========== MATCHDAY ==========");
@@ -320,6 +321,8 @@ public class Match {
        
         if (yourGoals > opponentGoals)
         {
+            League.findTeam("Underdog FC").addWin();
+            
             team.addPoints(3);
             
             season.addWin();
@@ -329,6 +332,7 @@ public class Match {
         else if (yourGoals == opponentGoals)
         {
             team.addPoints(1);
+            League.findTeam("Underdog FC").addDraw();
             opponent.addDraw();
             season.addDraw();
             //System.out.println("Underdog FC " + yourGoals + " - " + opponentGoals + " " + opponent);
@@ -337,6 +341,7 @@ public class Match {
         else
         {
             season.addLoss();
+            League.findTeam("Underdog FC").addLoss();
             opponent.addWin();
             //System.out.println("Underdog FC " + yourGoals + " - " + opponentGoals + " " + opponent);
             System.out.println("Defeat.");

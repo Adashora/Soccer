@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class League {
-    private ArrayList<leagueTeam> teams;
+    private static ArrayList<leagueTeam> teams;
     
     private ArrayList<Matchup> remainingGames;
     private Matchup currentUserMatch;
@@ -104,6 +104,8 @@ public Matchup getCurrentUserMatch() {
 }
 
 public void simWeek() {
+    boolean userMatchChosen = false;
+    
 
     ArrayList<leagueTeam> teamsPlayed = new ArrayList<>();
 
@@ -118,17 +120,21 @@ public void simWeek() {
         leagueTeam team2 = game.getTeam2();
 
         // Skip games involving the user's team
-        if(team1.getName().equals("Underdog FC")
+        if(!userMatchChosen && team1.getName().equals("Underdog FC")
         || team2.getName().equals("Underdog FC")) {
+            System.out.println("Found user match: " + game);
 
             currentUserMatch = game;
+            userMatchChosen = true;
+            remainingGames.remove(index);
             index++;
+            
 }
 
         // Simulate game if neither team has played this week
         else if (!teamsPlayed.contains(team1)
                 && !teamsPlayed.contains(team2)) {
-
+            System.out.println(game);
             simMatch(game);
 
             teamsPlayed.add(team1);
@@ -144,7 +150,9 @@ public void simWeek() {
 
             index++;
         }
+
     }
+    System.out.println(currentUserMatch);
 }
 public void sortTeams(){
     for(int i = 0; i < teams.size(); i++)
@@ -161,6 +169,19 @@ public void sortTeams(){
         }
     }
     
+}
+
+public static leagueTeam findTeam(String name)
+{
+    for(leagueTeam team : teams)
+    {
+        if(team.getName().equals(name))
+        {
+            return team;
+        }
+    }
+
+    return null;
 }
 public void printTable(){
     
