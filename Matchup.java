@@ -10,7 +10,7 @@ public class Matchup{
         return team1;
     }
     public leagueTeam getTeam2(){
-        return team2;
+        return team2;  //comment
     }
     public String toString(){
         return team1.getName() + " vs " + team2.getName();
