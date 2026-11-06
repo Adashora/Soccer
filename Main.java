@@ -10,8 +10,18 @@ public class Main
         2: add to table
         3: make goal difference the tiebreaker
         --
-        4: fix QOL -- typos same time pauses, pauses after texts, make it smooth
-        5: brainstorm -- add players next?
+        4: fix QOL
+        - typos 
+        - same time pauses
+        - pauses after texts
+        - make it look smooth
+
+        --FUTURE GOALS--
+        1: add players next?
+        - transfers
+        - rosters
+        - Halftime subs
+        - Overalls
     
     
     */ 
