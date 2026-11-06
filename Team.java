@@ -22,4 +22,5 @@ public class Team
     public void changeMorale(int amount){ morale += amount; }
     public void changeTactics(int amount){ tactics += amount; }
     public void addPoints(int amount){ points += amount; }
+    
 }

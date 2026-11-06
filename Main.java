@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Arrays;;
 
 /**
  * Runs the soccer manager game.
@@ -19,13 +20,17 @@ public class Main
 
         
 
+        
+        
         Text.intro();
+        
         
 
         while (season.getMatchNumber() <= 12)
         {
-            Season.playWeek(team, season);
+            
             league.simWeek();
+            Season.playWeek(team, season, league);
             league.printTable();
         }
 

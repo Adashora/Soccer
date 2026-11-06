@@ -36,11 +36,11 @@ public class Match {
 
     
 
-     public static void playMatch(Team team, Season season, String opponent, int opponentStrength){
+     public static void playMatch(Team team, Season season, leagueTeam opponent, int opponentStrength){
 
 
         System.out.println("========== MATCHDAY ==========");
-        System.out.println("Underdog FC vs " + opponent);
+        System.out.println("Underdog FC vs " + opponent.getName());
 
         
         int yourGoals = 0;
@@ -68,23 +68,23 @@ public class Match {
 
                     pause(2000);
 
-                    event(i, "Big chance for " + opponent);
+                    event(i, "Big chance for " + opponent.getName());
                     pause(1234);
 
-                    System.out.println("GOALLLLLL " + opponent);
+                    System.out.println("GOALLLLLL " + opponent.getName());
                     opponentGoals += 1;
                     
                 }
                 if (chance == 3){
 
-                    event(i, "Yellow card for " + opponent);
+                    event(i, "Yellow card for " + opponent.getName());
                 }
                 if (chance == 4){
                     event(i, "Yellow card for Underdog FC");
                 }
                 if (chance == 5){
 
-                   event(i, "Big chance for " + opponent);
+                   event(i, "Big chance for " + opponent.getName());
                     pause(1234);
                     System.out.println("No goal.");
                     
@@ -128,15 +128,15 @@ public class Match {
 
                     pause(2000);
 
-                    event(i, "Big chance for " + opponent);
+                    event(i, "Big chance for " + opponent.getName());
                     pause(1234);
 
-                    System.out.println("GOALLLLLL " + opponent);
+                    System.out.println("GOALLLLLL " + opponent.getName());
                     opponentGoals += 1;
                     
                 }
                 if (chance == 3){
-                    event(i, "Yellow card for " + opponent);
+                    event(i, "Yellow card for " + opponent.getName());
                 }
                 if (chance == 4){
 
@@ -144,7 +144,7 @@ public class Match {
                 }
                 if (chance == 5){
 
-                    event(i, "Big chance for " + opponent);
+                    event(i, "Big chance for " + opponent.getName());
                     pause(1234);
                     System.out.println("No goal.");
                     
@@ -177,16 +177,16 @@ public class Match {
                 if (chance == 2){
                     pause(2000);
 
-                    event(i, "Big chance for " + opponent);
+                    event(i, "Big chance for " + opponent.getName());
                     pause(1234);
 
-                    System.out.println("GOALLLLLL " + opponent);
+                    System.out.println("GOALLLLLL " + opponent.getName());
                     opponentGoals += 1;
                     
                 }
                 if (chance == 3){
 
-                    event(i, "Yellow card for " + opponent);
+                    event(i, "Yellow card for " + opponent.getName());
                 }
                 if (chance == 4){
 
@@ -194,7 +194,7 @@ public class Match {
                 }
                 if (chance == 5){
 
-                    event(i, "Big chance for " + opponent);
+                    event(i, "Big chance for " + opponent.getName());
                     pause(1234);
                     System.out.println("No goal.");
                     
@@ -225,16 +225,16 @@ public class Match {
 
                     pause(2000);
 
-                    event(i, "Big chance for " + opponent);
+                    event(i, "Big chance for " + opponent.getName());
                     pause(1234);
 
-                    System.out.println("GOALLLLLL " + opponent);
+                    System.out.println("GOALLLLLL " + opponent.getName());
                     opponentGoals += 1;
                     
                 }
                 if (chance == 3 || chance == 7){
 
-                    event(i, "Yellow card for " + opponent);
+                    event(i, "Yellow card for " + opponent.getName());
                 }
                 if (chance == 4){
 
@@ -242,7 +242,7 @@ public class Match {
                 }
                 if (chance == 5 || chance == 8){
 
-                    event(i, "Big chance for " + opponent);
+                    event(i, "Big chance for " + opponent.getName());
                     pause(1234);
                     System.out.println("No goal.");
                     
@@ -273,16 +273,16 @@ public class Match {
 
                     pause(2000);
 
-                    event(i, "Big chance for " + opponent);
+                    event(i, "Big chance for " + opponent.getName());
                     pause(1234);
 
-                    System.out.println("GOALLLLLL " + opponent);
+                    System.out.println("GOALLLLLL " + opponent.getName());
                     opponentGoals += 1;
                     
                 }
                 if (chance == 3){
 
-                    event(i, "Yellow card for " + opponent);
+                    event(i, "Yellow card for " + opponent.getName());
                 }
                 if (chance == 4){
 
@@ -290,7 +290,7 @@ public class Match {
                 }
                 if (chance == 5){
 
-                    event(i, "Big chance for " + opponent);
+                    event(i, "Big chance for " + opponent.getName());
 
                     System.out.println("No goal.");
                     
@@ -314,13 +314,14 @@ public class Match {
 
         System.out.println();
         System.out.println("========== FULL TIME ==========");
-        System.out.println("Underdog FC " + yourGoals + " - " + opponentGoals + " " + opponent);
+        System.out.println("Underdog FC " + yourGoals + " - " + opponentGoals + " " + opponent.getName());
 
        
        
         if (yourGoals > opponentGoals)
         {
             team.addPoints(3);
+            
             season.addWin();
             //System.out.println("Underdog FC " + yourGoals + " - " + opponentGoals + " " + opponent);
             System.out.println("Victory!");
@@ -328,6 +329,7 @@ public class Match {
         else if (yourGoals == opponentGoals)
         {
             team.addPoints(1);
+            opponent.addDraw();
             season.addDraw();
             //System.out.println("Underdog FC " + yourGoals + " - " + opponentGoals + " " + opponent);
             System.out.println("Draw.");
@@ -335,6 +337,7 @@ public class Match {
         else
         {
             season.addLoss();
+            opponent.addWin();
             //System.out.println("Underdog FC " + yourGoals + " - " + opponentGoals + " " + opponent);
             System.out.println("Defeat.");
         }

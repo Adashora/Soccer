@@ -45,6 +45,8 @@ public class leagueTeam
         losses++;
         
     }
+    public void addPoints(int amount){ points += amount; }
+    
     public void addGoal(int goals){
         goalsFor += goals;
     }
@@ -56,6 +58,7 @@ public class leagueTeam
     public void sortTeams(){
         
     }
+}
+    
 
     
-}

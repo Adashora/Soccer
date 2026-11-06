@@ -4,6 +4,8 @@ public class League {
     private ArrayList<leagueTeam> teams;
     
     private ArrayList<Matchup> remainingGames;
+    private Matchup currentUserMatch;
+
 
 public League()
 {
@@ -36,6 +38,16 @@ for(int i = 0; i < teams.size(); i++)
         );
     }
 }
+
+
+
+
+
+}
+
+public int getStrength(){
+    int opponentStrength = 55 + randomInt(41);
+    return opponentStrength;
 }
 
 public static int randomInt(int max){
@@ -63,11 +75,7 @@ public void simMatch(Matchup game){
     leagueTeam team1 = game.getTeam1();
     leagueTeam team2 = game.getTeam2();
 
-    System.out.println(
-        game.getTeam1().getName() +
-        " vs " +
-        game.getTeam2().getName()
-    );
+    //System.out.println(game.getTeam1().getName() + " vs " + game.getTeam2().getName());
 
     int score1 = randomInt(5);
     int score2 = randomInt(5);
@@ -91,11 +99,51 @@ public void simMatch(Matchup game){
     }
 
 }
-public void simWeek(){
-    for(int i = 0; i < 7; i++){
-        Matchup game = remainingGames.remove(0);
+public Matchup getCurrentUserMatch() {
+    return currentUserMatch;
+}
 
-        simMatch(game);
+public void simWeek() {
+
+    ArrayList<leagueTeam> teamsPlayed = new ArrayList<>();
+
+    int gamesPlayed = 0;
+    int index = 0;
+
+    while (gamesPlayed < 6 && index < remainingGames.size()) {
+
+        Matchup game = remainingGames.get(index);
+
+        leagueTeam team1 = game.getTeam1();
+        leagueTeam team2 = game.getTeam2();
+
+        // Skip games involving the user's team
+        if(team1.getName().equals("Underdog FC")
+        || team2.getName().equals("Underdog FC")) {
+
+            currentUserMatch = game;
+            index++;
+}
+
+        // Simulate game if neither team has played this week
+        else if (!teamsPlayed.contains(team1)
+                && !teamsPlayed.contains(team2)) {
+
+            simMatch(game);
+
+            teamsPlayed.add(team1);
+            teamsPlayed.add(team2);
+
+            remainingGames.remove(index);
+
+            gamesPlayed++;
+        }
+
+        // One of the teams already played this week
+        else {
+
+            index++;
+        }
     }
 }
 public void sortTeams(){
@@ -118,18 +166,23 @@ public void printTable(){
     
     sortTeams();
 
-    System.out.println("\n===== LEAGUE TABLE =====");
+    System.out.println("\n\t\t===== LEAGUE TABLE =====");
 
     for(int i = 0; i < teams.size(); i++)
     {
-        System.out.println(
-            (i + 1) + ". "
-            + teams.get(i).getName()
-            + " - "
-            + teams.get(i).getPoints()
-            + " pts"
+        System.out.println("\t\t" + 
+            (i + 1) + ". " + teams.get(i).getName() + " - " + teams.get(i).getPoints() + " pts"
         );
     }
+
+    try
+        {
+            Thread.sleep(1000);
+        }
+        catch (InterruptedException e)
+        {
+            e.printStackTrace();
+        }
 }
 
 }

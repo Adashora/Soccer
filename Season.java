@@ -7,12 +7,24 @@ public class Season
     private int wins;
     private int draws;
     private int losses;
+    private Matchup currentUserMatchup;
+    private static League league;
+    
+
         private static Scanner keyboard = new Scanner(System.in);
 
     public static int randomInt(int max)
     {
         return (int)(Math.random() * max);
     }
+    public void setCurrentUserMatchup(Matchup game){
+        currentUserMatchup = game;
+
+    }
+
+    public Matchup getCurrentUserMatchup(){
+        return currentUserMatchup;
+    } 
 
 
     public Season()
@@ -58,7 +70,7 @@ public class Season
     }
 
 
-    public static void playWeek(Team team, Season season)
+    public static void playWeek(Team team, Season season, League league)
     {
         Text.Weeks(team, season);
 
@@ -93,16 +105,20 @@ public class Season
         }
 
         
-        String opponent = getOpponentName();
-        int opponentStrength = 55 + randomInt(41);
-        int teamStrength = (team.getFitness() + team.getMorale() + team.getTactics()) / 3;
+        Matchup game = league.getCurrentUserMatch();
 
-        
+        leagueTeam opponent;
 
-        System.out.println();
-        System.out.println("Opponent: " + opponent);
+        if(game.getTeam1().getName().equals("Underdog FC")){
+            opponent = game.getTeam2();
+        }
+        else{
+            opponent = game.getTeam1();
+        }
+        int opponentStrength = league.getStrength();
 
         Match.playMatch(team, season, opponent, opponentStrength);
+        
 
         
 
