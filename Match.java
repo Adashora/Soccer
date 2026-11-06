@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Match {
 
-    public static void pause(int a){
+    public static void pause(int a){ //puse in milliseconds
 
 
         try
@@ -25,7 +25,7 @@ public class Match {
     private static Scanner key = new Scanner(System.in);
 
     
-    public static void event(int minute, String text)
+    public static void event(int minute, String text) //prints out an event with pauses
 {
     pause(2000);
     System.out.println(minute + "':");
@@ -50,12 +50,12 @@ public class Match {
         //first half events
         System.out.println("Game Start!!!");
 
-        for (int i = 0; i < 45; i++){
+        for (int i = 0; i < 45; i++){ //gives a random chance of an event in the first half
 
-            int chance = randomInt(6) + 1;
-            if (randomInt(90) < 5){
+            int chance = randomInt(6) + 1; //makes chance random
+            if (randomInt(90) < 5){ 
 
-                if (chance == 1){
+                if (chance == 1){ 
 
                    
                     event(i, "Big chance for Underdog FC");
@@ -75,7 +75,7 @@ public class Match {
                     System.out.println("GOALLLLLL " + opponent.getName());
                     opponentGoals += 1;
                     
-                }
+                }                                                                       //first half chances
                 if (chance == 3){
 
                     event(i, "Yellow card for " + opponent.getName());
@@ -105,7 +105,7 @@ public class Match {
             
         }
 
-            System.out.println("");
+            System.out.println(""); //prints out the halftime score and options
 
             pause(2000);
             System.out.println("\t\tIt is halftime the score is: " + yourGoals + "-" + opponentGoals);
@@ -114,9 +114,9 @@ public class Match {
 
             int choice = key.nextInt();
 
-        for (int i = 45; i < 90; i++){
+        for (int i = 45; i < 90; i++){ //same loop for second half
             if (choice == 1){
-                 int chance = randomInt(8);
+                 int chance = randomInt(8); //increases chance for goals -- otherwise the same
             if (randomInt(90) < 5){
 
                 if (chance == 1 || chance == 7){
@@ -163,7 +163,7 @@ public class Match {
 
             }
 
-            if (choice == 2){
+            if (choice == 2){ //keep the same
                  int chance = randomInt(6);
             if (randomInt(90) < 5){
 
@@ -211,7 +211,7 @@ public class Match {
             }
             }
             
-            if (choice == 3){
+            if (choice == 3){ // increases chance for yellow card and nuetral events
                  int chance = randomInt(8);
             if (randomInt(90) < 5){
 
@@ -260,7 +260,7 @@ public class Match {
             }
                 
             else{
-            int chance = randomInt(6);
+            int chance = randomInt(6); //no change
             if (randomInt(90) < 5){
 
                 if (chance == 1){
@@ -315,18 +315,17 @@ public class Match {
 
         System.out.println();
         System.out.println("========== FULL TIME ==========");
-        System.out.println("Underdog FC " + yourGoals + " - " + opponentGoals + " " + opponent.getName());
+        System.out.println("Underdog FC " + yourGoals + " - " + opponentGoals + " " + opponent.getName()); //[rints full time score]
 
        
        
         if (yourGoals > opponentGoals)
         {
-            League.findTeam("Underdog FC").addWin();
+            League.findTeam("Underdog FC").addWin();                    //gives points to the winning/drawing team
             
             team.addPoints(3);
             
             season.addWin();
-            //System.out.println("Underdog FC " + yourGoals + " - " + opponentGoals + " " + opponent);
             System.out.println("Victory!");
         }
         else if (yourGoals == opponentGoals)
@@ -335,15 +334,13 @@ public class Match {
             League.findTeam("Underdog FC").addDraw();
             opponent.addDraw();
             season.addDraw();
-            //System.out.println("Underdog FC " + yourGoals + " - " + opponentGoals + " " + opponent);
             System.out.println("Draw.");
-        }
+        }                                                                   //LATER: add goals scored and goals against
         else
         {
             season.addLoss();
             League.findTeam("Underdog FC").addLoss();
             opponent.addWin();
-            //System.out.println("Underdog FC " + yourGoals + " - " + opponentGoals + " " + opponent);
             System.out.println("Defeat.");
         }
         

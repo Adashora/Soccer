@@ -11,7 +11,7 @@ public League()
 {
     teams = new ArrayList<leagueTeam>();
 
-    teams.add(new leagueTeam("Underdog FC"));
+    teams.add(new leagueTeam("Underdog FC"));      //list of all the teams -- including user
     teams.add(new leagueTeam("Madison FC"));
     teams.add(new leagueTeam("Arsenal"));
     teams.add(new leagueTeam("Man City"));
@@ -34,7 +34,7 @@ for(int i = 0; i < teams.size(); i++)
     for(int j = i + 1; j < teams.size(); j++)
     {
         remainingGames.add(
-            new Matchup(teams.get(i), teams.get(j))
+            new Matchup(teams.get(i), teams.get(j))   //creates a matchup by taking 2 teams in the list
         );
     }
 }
@@ -46,7 +46,7 @@ for(int i = 0; i < teams.size(); i++)
 }
 
 public int getStrength(){
-    int opponentStrength = 55 + randomInt(41);
+    int opponentStrength = 55 + randomInt(41);   //gets a random strength for a team
     return opponentStrength;
 }
 
@@ -71,17 +71,16 @@ public void printTeams() {
 
 }
 
-public void simMatch(Matchup game){
+public void simMatch(Matchup game){ //simulates a match between 2 ai teams
     leagueTeam team1 = game.getTeam1();
     leagueTeam team2 = game.getTeam2();
 
-    //System.out.println(game.getTeam1().getName() + " vs " + game.getTeam2().getName());
 
     int score1 = randomInt(5);
-    int score2 = randomInt(5);
+    int score2 = randomInt(5);   //randommized score - no logic
 
     team1.addGoal(score1);
-    team2.addGoal(score2);
+    team2.addGoal(score2);          //adding stats for future detailed table
     team1.addGoalAgainst(score2);
     team2.addGoalAgainst(score1);
 
@@ -117,12 +116,12 @@ public void simWeek() {
         Matchup game = remainingGames.get(index);
 
         leagueTeam team1 = game.getTeam1();
-        leagueTeam team2 = game.getTeam2();
+        leagueTeam team2 = game.getTeam2();          //creates the schedule for the whole week
 
         // Skip games involving the user's team
         if(!userMatchChosen && team1.getName().equals("Underdog FC")
         || team2.getName().equals("Underdog FC")) {
-            System.out.println("Found user match: " + game);
+            System.out.println("Found user match: " + game);             //if underdog fc is playing define current user match
 
             currentUserMatch = game;
             userMatchChosen = true;
@@ -135,7 +134,7 @@ public void simWeek() {
         else if (!teamsPlayed.contains(team1)
                 && !teamsPlayed.contains(team2)) {
             System.out.println(game);
-            simMatch(game);
+            simMatch(game);                        //simulates the game if both teams havent played yet
 
             teamsPlayed.add(team1);
             teamsPlayed.add(team2);
@@ -159,7 +158,7 @@ public void sortTeams(){
     {
         for(int j = i + 1; j < teams.size(); j++)
         {
-            if(teams.get(j).getPoints() >
+            if(teams.get(j).getPoints() >              //sort teams in the table by most points -- later add tiebreakers
             teams.get(i).getPoints())
             {
             leagueTeam temp = teams.get(i);

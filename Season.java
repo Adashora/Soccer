@@ -17,7 +17,7 @@ public class Season
     {
         return (int)(Math.random() * max);
     }
-    public void setCurrentUserMatchup(Matchup game){
+    public void setCurrentUserMatchup(Matchup game){ 
         currentUserMatchup = game;
 
     }
@@ -49,7 +49,7 @@ public class Season
 
     public static String getOpponentName()
     {
-        ArrayList<String> opponents = new ArrayList<String>();
+        ArrayList<String> opponents = new ArrayList<String>(); //array of every team except user
             opponents.add("Madison FC");
             opponents.add("Arsenal");
             opponents.add("Man City");
@@ -63,18 +63,18 @@ public class Season
             opponents.add("Monaco");
             opponents.add("Liverpool");
 
-            int index = randomInt(opponents.size());
+            int index = randomInt(opponents.size()); //picks a random opponent
             String opponent = opponents.get(index);
-            opponents.remove(index);
+            opponents.remove(index); //removes opponent from list
             return opponent;
     }
 
 
-    public static void playWeek(Team team, Season season, League league)
+    public static void playWeek(Team team, Season season, League league) 
     {
         Text.Weeks(team, season);
 
-        System.out.println("\t\t1. Intense Training");
+        System.out.println("\t\t1. Intense Training"); //prints weekly choices
         System.out.println("\t\t2. Tactical Study");
         System.out.println("\t\t3. Team Bonding");
         System.out.println("\t\t4. Recovery Week");
@@ -84,45 +84,46 @@ public class Season
 
         if (choice == 1)
         {
-            team.changeFitness(6);
+            team.changeFitness(10);
             team.changeMorale(-6);
         }
         else if (choice == 2)
         {
             team.changeTactics(10);
             team.changeFitness(-4);
-        }
+        }                                       //choices affect the teams attributes -- add wins and losses effect on morale
         else if (choice == 3)
         {
             team.changeMorale(10);
-            team.changeFitness(-4);
+            team.changeFitness(-6);
             team.changeTactics(-4);
         }
         else
         {
             team.changeFitness(8);
             team.changeMorale(4);
+            team.changeTactics(-3);
         }
 
         
-        Matchup game = league.getCurrentUserMatch();
+        Matchup game = league.getCurrentUserMatch(); //defines the users game
 
         leagueTeam opponent;
 
-        if(game.getTeam1().getName().equals("Underdog FC")){
+        if(game.getTeam1().getName().equals("Underdog FC")){     // finds out if user is team 1 or team 2
             opponent = game.getTeam2();
         }
         else{
             opponent = game.getTeam1();
         }
-        int opponentStrength = league.getStrength();
+        int opponentStrength = league.getStrength();    //gets the opponents strength
 
-        Match.playMatch(team, season, opponent, opponentStrength);
+        Match.playMatch(team, season, opponent, opponentStrength); //plays match
         
 
         
 
-        season.nextMatch();
+        season.nextMatch(); //moves to next match;
     }
 
 

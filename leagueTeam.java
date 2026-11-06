@@ -8,7 +8,7 @@ public class leagueTeam
     private int goalsFor;
     private int goalsAgainst;
 
-    public leagueTeam(String name)
+    public leagueTeam(String name)    //defines a league team -- not user
     {
         this.name = name;
         wins = 0;
@@ -46,7 +46,7 @@ public class leagueTeam
         
     }
     public void addPoints(int amount){ points += amount; }
-    
+
     public void addGoal(int goals){
         goalsFor += goals;
     }

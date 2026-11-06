@@ -8,7 +8,7 @@ public class Team
     public Team()
     {
         fitness = 70;
-        morale = 70;
+        morale = 70;                //holds teams attributes and change methods
         tactics = 70;
         points = 0;
     }
