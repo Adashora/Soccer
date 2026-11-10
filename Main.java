@@ -9,6 +9,7 @@ public class Main
         1: complete goals and goal difference
         2: add to table
         3: make goal difference the tiebreaker
+        4: make wins and losses affect morale // look over how morale affects strength
         --
         4: fix QOL
         - typos 
@@ -25,17 +26,6 @@ public class Main
     
     
     */ 
-
-    
-
-
-
-
-
-
-
-
-
 
     private static Scanner keyboard = new Scanner(System.in);
 
