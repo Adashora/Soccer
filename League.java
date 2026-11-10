@@ -121,7 +121,9 @@ public void simWeek() {
         // Skip games involving the user's team
         if(!userMatchChosen && team1.getName().equals("Underdog FC")
         || team2.getName().equals("Underdog FC")) {
-            System.out.println("Found user match: " + game);             //if underdog fc is playing define current user match
+           //System.out.println("Found user match: " + game); 
+            teamsPlayed.add(team1);
+            teamsPlayed.add(team2);            //if underdog fc is playing define current user match
 
             currentUserMatch = game;
             userMatchChosen = true;
@@ -131,8 +133,8 @@ public void simWeek() {
 }
 
         // Simulate game if neither team has played this week
-        else if (!teamsPlayed.contains(team1)
-                && !teamsPlayed.contains(team2)) {
+        else if ((!teamsPlayed.contains(team1) && !teamsPlayed.contains(team2))) {
+
             System.out.println(game);
             simMatch(game);                        //simulates the game if both teams havent played yet
 
@@ -143,6 +145,9 @@ public void simWeek() {
 
             gamesPlayed++;
         }
+
+        
+        
 
         // One of the teams already played this week
         else {
