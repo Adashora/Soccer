@@ -110,6 +110,7 @@ public void simWeek() {
 
     int gamesPlayed = 0;
     int index = 0;
+    System.out.println("--- Weekly Schedule ---");
 
     while (gamesPlayed < 6 && index < remainingGames.size()) {
 
@@ -191,11 +192,11 @@ public void printTable(){
     
     sortTeams();
 
-    System.out.println("\n\t\t===== LEAGUE TABLE =====");
+    System.out.println("\n\t\t\t\t\t\t\t===== LEAGUE TABLE =====");
 
     for(int i = 0; i < teams.size(); i++)
     {
-        System.out.println("\t\t" + 
+        System.out.println("\t\t\t\t\t\t\t" + 
             (i + 1) + ". " + teams.get(i).getName() + " - " + teams.get(i).getPoints() + " pts"
         );
     }

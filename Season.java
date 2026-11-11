@@ -74,11 +74,11 @@ public class Season
     {
         Text.Weeks(team, season);
 
-        System.out.println("\t\t1. Intense Training"); //prints weekly choices
-        System.out.println("\t\t2. Tactical Study");
-        System.out.println("\t\t3. Team Bonding");
-        System.out.println("\t\t4. Recovery Week");
-        System.out.print("\t\tChoice: ");
+        System.out.println("1. Intense Training"); //prints weekly choices
+        System.out.println("2. Tactical Study");
+        System.out.println("3. Team Bonding");
+        System.out.println("4. Recovery Week");
+        System.out.print("Choice: ");
 
         int choice = keyboard.nextInt();
 
