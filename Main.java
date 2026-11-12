@@ -6,10 +6,17 @@ public class Main
 {
 
     /* TO-DO LIST NOVEMBER 6TH
+        -- Minor Goals --
+        - formate league table better
+        - make schedule random
+
+
         1: complete goals and goal difference
-        2: add to table
-        3: make goal difference the tiebreaker
-        4: make wins and losses affect morale // look over how morale affects strength
+        - add to table (DONE)
+        - make goal difference the tiebreaker
+        3: make wins and losses affect morale
+        - look over how morale affects strength
+        - does strength still affect users games?
         --
         4: fix QOL
         - typos 
@@ -18,7 +25,9 @@ public class Main
         - make it look smooth
 
         --FUTURE GOALS--
-        1: add players next?
+        1: rivalries?
+        2: Choose team name
+        2: add players next?
         - transfers
         - rosters
         - Halftime subs
