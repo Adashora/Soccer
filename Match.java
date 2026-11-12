@@ -317,13 +317,19 @@ public class Match {
         System.out.println("========== FULL TIME ==========");
         System.out.println("Underdog FC " + yourGoals + " - " + opponentGoals + " " + opponent.getName()); //[rints full time score]
 
-       
+        
        
         if (yourGoals > opponentGoals)
         {
-            League.findTeam("Underdog FC").addWin();                    //gives points to the winning/drawing team
+            League.findTeam("Underdog FC").addWin();    
+            League.findTeam("Underdog FC").addGoal(yourGoals);
+            League.findTeam("Underdog FC").addGoalAgainst(opponentGoals);
+
+                //gives points to the winning/drawing team
             
-            team.addPoints(3);
+            //team.addPoints(3);
+            
+            
             
             season.addWin();
             System.out.println("Victory!");
@@ -334,6 +340,8 @@ public class Match {
             League.findTeam("Underdog FC").addDraw();
             opponent.addDraw();
             season.addDraw();
+            League.findTeam("Underdog FC").addGoal(yourGoals);
+            League.findTeam("Underdog FC").addGoalAgainst(opponentGoals);
             System.out.println("Draw.");
         }                                                                   //LATER: add goals scored and goals against
         else
@@ -341,6 +349,8 @@ public class Match {
             season.addLoss();
             League.findTeam("Underdog FC").addLoss();
             opponent.addWin();
+            League.findTeam("Underdog FC").addGoal(yourGoals);
+            League.findTeam("Underdog FC").addGoalAgainst(opponentGoals);
             System.out.println("Defeat.");
         }
         

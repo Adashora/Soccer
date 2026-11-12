@@ -7,6 +7,7 @@ public class leagueTeam
     private int points;
     private int goalsFor;
     private int goalsAgainst;
+    private int goalDif;
 
     public leagueTeam(String name)    //defines a league team -- not user
     {
@@ -45,6 +46,12 @@ public class leagueTeam
         losses++;
         
     }
+    public void setGoaldif(){
+        goalDif = goalsFor - goalsAgainst;
+    }
+    public int getGoalDif(){
+        return goalDif;
+    }
     public void addPoints(int amount){ points += amount; }
 
     public void addGoal(int goals){
@@ -53,6 +60,8 @@ public class leagueTeam
     public void addGoalAgainst(int goals){
         goalsAgainst += goals;
     }
+    
+
 
 
     public void sortTeams(){

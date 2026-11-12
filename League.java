@@ -110,7 +110,8 @@ public void simWeek() {
 
     int gamesPlayed = 0;
     int index = 0;
-    System.out.println("--- Weekly Schedule ---");
+    System.out.println();
+    System.out.println("\t\t\t\t\t\t\t--- Weekly Schedule ---");
 
     while (gamesPlayed < 6 && index < remainingGames.size()) {
 
@@ -136,7 +137,7 @@ public void simWeek() {
         // Simulate game if neither team has played this week
         else if ((!teamsPlayed.contains(team1) && !teamsPlayed.contains(team2))) {
 
-            System.out.println(game);
+            System.out.println("\t\t\t\t\t\t\t" + game);
             simMatch(game);                        //simulates the game if both teams havent played yet
 
             teamsPlayed.add(team1);
@@ -157,7 +158,7 @@ public void simWeek() {
         }
 
     }
-    System.out.println(currentUserMatch);
+    System.out.println("\t\t\t\t\t\t\t" + currentUserMatch);
 }
 public void sortTeams(){
     for(int i = 0; i < teams.size(); i++)
@@ -196,9 +197,10 @@ public void printTable(){
 
     for(int i = 0; i < teams.size(); i++)
     {
+        teams.get(i).setGoaldif();
         System.out.println("\t\t\t\t\t\t\t" + 
             (i + 1) + ". " + teams.get(i).getName() + " - " + teams.get(i).getPoints() + " pts"
-        );
+         + " - " + teams.get(i).getGoalDif());
     }
 
     try
