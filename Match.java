@@ -324,6 +324,8 @@ public class Match {
             League.findTeam("Underdog FC").addWin();    
             League.findTeam("Underdog FC").addGoal(yourGoals);
             League.findTeam("Underdog FC").addGoalAgainst(opponentGoals);
+            League.findTeam(opponent.getName()).addGoalAgainst(yourGoals);
+            League.findTeam(opponent.getName()).addGoal(opponentGoals);
 
                 //gives points to the winning/drawing team
             
@@ -340,6 +342,10 @@ public class Match {
             League.findTeam("Underdog FC").addDraw();
             opponent.addDraw();
             season.addDraw();
+
+            League.findTeam(opponent.getName()).addGoalAgainst(yourGoals);
+            League.findTeam(opponent.getName()).addGoal(opponentGoals);
+
             League.findTeam("Underdog FC").addGoal(yourGoals);
             League.findTeam("Underdog FC").addGoalAgainst(opponentGoals);
             System.out.println("Draw.");
@@ -351,6 +357,8 @@ public class Match {
             opponent.addWin();
             League.findTeam("Underdog FC").addGoal(yourGoals);
             League.findTeam("Underdog FC").addGoalAgainst(opponentGoals);
+            League.findTeam(opponent.getName()).addGoalAgainst(yourGoals);
+            League.findTeam(opponent.getName()).addGoal(opponentGoals);
             System.out.println("Defeat.");
         }
         

@@ -32,6 +32,14 @@ public class Main
         - rosters
         - Halftime subs
         - Overalls
+        4: Create whole main me nu to choose game mode
+        - tounrmanet mode
+            - champions league
+            - international
+        - season mode
+            - different nations
+            - different amoutn of teams (20, 12, 6 idk)
+        -
     
     
     */ 
